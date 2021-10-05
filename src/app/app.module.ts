@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DockComponent } from './components/dock/dock.component';
 import { DockItemComponent } from './components/dock-item/dock-item.component';
 import { ProgramComponent } from './components/program/program.component';
+import { MatIconModule } from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProgramComponent } from './components/program/program.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

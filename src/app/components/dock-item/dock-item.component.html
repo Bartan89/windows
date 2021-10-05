@@ -1,1 +1,8 @@
-<div (click)="openProgram($event)" class="dockItem"></div>
+<div class="dockInfo">
+  <span [style.animation]="metaText$ | async" class="dockInfoText">
+    {{desc}}
+  </span>
+</div>
+<div (mouseenter)="showMetaText()" (mouseleave)="hideMetaText()" (click)="openProgram($event)" class="dockItem">
+  <mat-icon fxFlexAlign="center" class="icon">{{label}}</mat-icon>
+</div>

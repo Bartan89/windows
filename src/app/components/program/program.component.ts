@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { animationFrameScheduler, BehaviorSubject, fromEvent, interval, of, Subject } from 'rxjs';
 import { concatMap, map, mergeMap, startWith, switchMap, takeUntil, takeWhile, tap } from 'rxjs/operators'
 
@@ -7,15 +7,16 @@ import { concatMap, map, mergeMap, startWith, switchMap, takeUntil, takeWhile, t
   templateUrl: './program.component.html',
   styleUrls: ['./program.component.scss']
 })
-export class ProgramComponent implements OnInit {
+export class ProgramComponent implements OnInit, OnDestroy {
 
   constructor() { }
 
 
   @Input() metaData: { openPosX: number, openPosY: number, id: number } = { openPosX: 0, openPosY: 0, id: 0 }
-  @Output() removeMe = new EventEmitter<boolean>()
+  @Output() removeMe = new EventEmitter<number>()
 
 
+  destroy$ = new Subject();
 
   ngOnInit(): void {
     console.log(this.metaData.openPosX)
@@ -66,16 +67,22 @@ export class ProgramComponent implements OnInit {
     console.log(event)
 
     this.closeWindow$.next('close 0.3s ease-out forwards')
-    this.removeMe.emit(true);
+    this.removeMe.emit(this.metaData.id);
 
     interval(0, animationFrameScheduler).pipe(
+
       map(x => x ** 1.8),
       map(x => x + event.screenY),
       tap(console.log),
-      // takeWhile(x => x > 0),
+      takeUntil(this.destroy$),
       tap((increment) => this.position$$.next({ x: event.screenX - 210, y: increment }))
     ).subscribe()
   }
+
+  ngOnDestroy(): void {
+    this.destroy$.next()
+  }
+
 }
 
 

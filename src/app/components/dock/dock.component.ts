@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { interval } from 'rxjs';
+import { take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-dock',
@@ -20,6 +22,15 @@ export class DockComponent implements OnInit {
     console.log(this.programs)
     this.programs = [...this.programs, event]
 
+  }
+
+
+  removeProgram(id: number) {
+    console.log(event)
+    interval(1000).pipe(
+      tap(() => this.programs = [...this.programs.filter(p => p.id !== id)]),
+      take(1),
+    ).subscribe()
   }
 
 }

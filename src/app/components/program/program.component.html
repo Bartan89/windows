@@ -1,4 +1,30 @@
 <div [style.animation]="closeWindow$ | async" [style.transform]="position$ | async" class="program">
   <div (click)="closeWindow($event)" class="minus"></div>
   <div (mousedown)="dragStart($event)" class="topHandle"></div>
+
+  <div *ngIf="metaData.id === 0" class="content">
+    <h1>Hi, 👋 </h1>
+    <img
+      src="https://media-exp1.licdn.com/dms/image/C4E03AQF_LLZ5JtGUFA/profile-displayphoto-shrink_200_200/0/1600797546565?e=1636588800&v=beta&t=BLfB6nwqvgl3TsH1yVDdaPfHYFuTpTWmCi44rDwVcag"
+      alt="">
+    <h2>My name is Bart Kuijper.</h2>
+  </div>
+
+  <div *ngIf="metaData.id === 1" class="content">
+    <h2>SECOND</h2>
+  </div>
+
+  <div *ngIf="metaData.id === 2" class="content">
+    <h2>THIRD</h2>
+  </div>
+
+  <div *ngIf="metaData.id === 3" class="content">
+    <h2>FOURTH</h2>
+  </div>
+
+  <div *ngIf="metaData.id === 4" class="content">
+    <h2>How to contact me?</h2>
+    <h3>bart.kuijper89@gmail.com</h3>
+  </div>
+
 </div>

@@ -2,11 +2,72 @@
   margin: 0px 5px;
   height: 150px;
   width: 150px;
-  background-color: rgb(94, 94, 94);
+  background-color: rgb(241, 241, 241);
   border-radius: 5px;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
 }
 
 .dockItem:hover {
-  background-color: rgb(22, 22, 22);
+  background-color: rgb(121, 189, 206);
+}
+
+.label {
+  font-family: Helvetica, Arial, sans-serif;
+  display: inline;
+  color: white;
+  margin: 0px auto;
+}
+
+.icon{
+  color: rgb(121, 189, 206);
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  font-size: 80px;
+  display: inline;
+  padding: 35px;
+}
+
+.icon:hover{
+  color: rgb(241, 241, 241);
+}
+
+.dockInfo{
+  display: flex;
+  height: 0px
+}
+
+.dockInfoText{
+  position: relative;
+  display: flex;
+  margin: auto;
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: rgb(82, 82, 82);
+  color: white;
+  padding: 5px;
+  z-index: -1;
+  bottom: 0px
+}
+
+
+
+
+@keyframes show {
+  0% {
+    bottom: 0px
+  }
+
+  100% {
+    bottom: 40px
+  }
+}
+
+@keyframes hide {
+  0% {
+    bottom: 40px
+  }
+  100% {
+    bottom: 0px
+  }
 }
