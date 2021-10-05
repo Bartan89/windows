@@ -1,0 +1,4 @@
+<div [style.animation]="closeWindow$ | async" [style.transform]="position$ | async" class="program">
+  <div (click)="closeWindow($event)" class="minus"></div>
+  <div (mousedown)="dragStart($event)" class="topHandle"></div>
+</div>

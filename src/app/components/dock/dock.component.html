@@ -1,0 +1,16 @@
+<ng-container *ngFor="let program of programs">
+  <app-program [metaData]="program"></app-program>
+</ng-container>
+
+<h1>hello:</h1>
+<h1>{{programs}}</h1>
+
+<div class=dockContainer>
+  <div class="dockbar">
+    <app-dock-item (openById)="open($event)" [id]=0></app-dock-item>
+    <app-dock-item (openById)="open($event)" [id]=1></app-dock-item>
+    <app-dock-item (openById)="open($event)" [id]=2></app-dock-item>
+    <app-dock-item (openById)="open($event)" [id]=3></app-dock-item>
+    <app-dock-item (openById)="open($event)" [id]=4></app-dock-item>
+  </div>
+</div>
