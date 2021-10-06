@@ -42,8 +42,11 @@ export class ProgramComponent implements OnInit, OnDestroy {
   ).subscribe()
 
 
+  offset$$ = new BehaviorSubject<{ x: number, y: number }>({ x: 0, y: 0 })
+
   absolutePosition$ = fromEvent(window, 'mousemove').pipe(
-    tap((p: any) => this.position$$.next({ x: (p.screenX), y: (p.screenY - 160) }))
+    tap((p: any) => console.log('X2:', p.screenX, 'Y2', p.screenY)),
+    tap((p: any) => this.position$$.next({ x: (p.screenX - this.offset$$.value.x), y: ((p.screenY - 225) - this.offset$$.value.y) }))
   )
 
 
@@ -61,7 +64,10 @@ export class ProgramComponent implements OnInit, OnDestroy {
   closeWindow$ = new BehaviorSubject('')
 
 
-  dragStart(event: { screenX: number, screenY: number }) {
+  dragStart(event: { screenX: number, screenY: number, offsetX: number, offsetY: number }) {
+    console.log('X:', event.screenX, 'Y', event.screenY)
+    console.log('all', event)
+    this.offset$$.next({ x: event.offsetX, y: event.offsetY })
     this.startDrag$$.next(true);
   }
 
