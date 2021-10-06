@@ -7,13 +7,15 @@ import { DockComponent } from './components/dock/dock.component';
 import { DockItemComponent } from './components/dock-item/dock-item.component';
 import { ProgramComponent } from './components/program/program.component';
 import { MatIconModule } from "@angular/material/icon";
+import { LanguageComponent } from './components/language/language.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DockComponent,
     DockItemComponent,
-    ProgramComponent
+    ProgramComponent,
+    LanguageComponent
   ],
   imports: [
     BrowserModule,

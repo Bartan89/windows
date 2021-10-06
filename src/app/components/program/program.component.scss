@@ -3,6 +3,7 @@
   border-radius: 10px;
   position: absolute;
   overflow: auto;
+  opacity: 0.95;
 }
 
 @keyframes scale {
@@ -13,14 +14,14 @@
 
   100% {
     width: 400px;
-    height: 800px;
+    height: 600px;
   }
 }
 
 @keyframes close {
   0% {
     width: 400px;
-    height: 800px;
+    height: 600px;
   }
   
   100% {
