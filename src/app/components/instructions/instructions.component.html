@@ -1,15 +1,19 @@
-<div class="instructionsContainer">
+<div>
+  <div class="instructionsContainer">
+    <p>This website is a CV, but also a project in and of itself, happy exploring!</p>
+    <span class="animate1">1</span>
+    <h1 class="animateOpen">open</h1>
+    <span class="animate2">2</span>
+    <h1 class="animateDrag">drag</h1>
+    <span class="animate3">3</span>
+    <h1 class="animateMinimize">minimize</h1>
+    <div>
+      <button (mouseleave)="desizeThumb()" (mouseenter)="enterThumb()" class=" btn">Got it!<div class="thumb"
+          [style.transform]="(thumbSize$ | async)" [style.animation]="fadeIn$ | async">👍
+        </div></button>
 
-  <!-- <div>
-    <div class="close">X</div>
-    <mat-icon fxFlexAlign="center" class="icon">shortcut</mat-icon>
-    <p>Got it?</p>
-  </div> -->
-
-  <span class="animate1">1</span>
-  <h1 class="animateOpen">open</h1>
-  <span class="animate2">2</span>
-  <h1 class="animateDrag">drag</h1>
-  <span class="animate3">3</span>
-  <h1 class="animateMinimize">minimize</h1>
+    </div>
+  </div>
+  <div class="everthingElse">
+  </div>
 </div>

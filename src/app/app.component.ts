@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'windows';
+
+  showInstructions = true;
+
+
+  userCompletedInstructions(event: any) {
+    this.showInstructions = false;
+  }
 }
