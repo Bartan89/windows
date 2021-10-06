@@ -8,6 +8,7 @@ import { DockItemComponent } from './components/dock-item/dock-item.component';
 import { ProgramComponent } from './components/program/program.component';
 import { MatIconModule } from "@angular/material/icon";
 import { LanguageComponent } from './components/language/language.component';
+import { InstructionsComponent } from './components/instructions/instructions.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { LanguageComponent } from './components/language/language.component';
     DockComponent,
     DockItemComponent,
     ProgramComponent,
-    LanguageComponent
+    LanguageComponent,
+    InstructionsComponent
   ],
   imports: [
     BrowserModule,

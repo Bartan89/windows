@@ -46,7 +46,7 @@ export class ProgramComponent implements OnInit, OnDestroy {
 
   absolutePosition$ = fromEvent(window, 'mousemove').pipe(
     tap((p: any) => console.log('X2:', p.screenX, 'Y2', p.screenY)),
-    tap((p: any) => this.position$$.next({ x: (p.screenX - this.offset$$.value.x), y: ((p.screenY - 225) - this.offset$$.value.y) }))
+    tap((p: any) => this.position$$.next({ x: ((p.screenX - 70) - this.offset$$.value.x), y: ((p.screenY - 225) - this.offset$$.value.y) }))
   )
 
 
