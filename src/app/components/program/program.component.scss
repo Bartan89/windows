@@ -41,13 +41,13 @@
 .minus {
   position: absolute;
   right: 15px;
-  top: 12px;
+  top: 4px;
   width: 27px;
-  height: 6px;
+  height: 5px;
   background-color: rgb(88, 88, 88);
-  border-radius: 10px;
+  border-radius: 15px;
   cursor: pointer;
-  border: 5px;
+  border: 9px solid rgb(207, 207, 207);
 }
 
 .minus:hover {
