@@ -1,3 +1,4 @@
 <app-instructions *ngIf="showInstructions" (removeMe)="userCompletedInstructions($event)"></app-instructions>
+<app-welcome *ngIf="!showInstructions"></app-welcome>
 <app-language></app-language>
 <app-dock></app-dock>

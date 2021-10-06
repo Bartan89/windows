@@ -1,0 +1,11 @@
+.welcomeContainer {
+  margin-left: calc(50% - 150px);
+  margin-top: calc(35% - 150px);
+  width: 300px;
+  position: absolute;
+}
+
+.welcome{
+  display: flex;
+  font-size: 40px;
+}

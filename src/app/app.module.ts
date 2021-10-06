@@ -9,6 +9,7 @@ import { ProgramComponent } from './components/program/program.component';
 import { MatIconModule } from "@angular/material/icon";
 import { LanguageComponent } from './components/language/language.component';
 import { InstructionsComponent } from './components/instructions/instructions.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { InstructionsComponent } from './components/instructions/instructions.co
     DockItemComponent,
     ProgramComponent,
     LanguageComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,

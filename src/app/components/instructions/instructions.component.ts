@@ -35,16 +35,10 @@ export class InstructionsComponent implements OnInit {
     map(s => `scale(${s})`)
   )
 
-  enterThumb() {
-    // interval(0, animationFrameScheduler).pipe(
-    //   map(x => (x / 100) + 1),
-    //   map(x => (Math.log(x) * 2) + 1),
-    //   tap(x => this.thumbSize$$.next(x)),
-    //   takeUntil(this.thumbEnd$),
-    //   tap(x => x > 3 ? this.removeMe.emit(true) : null),
-    //   takeWhile(x => x < 3)
-    // ).subscribe()
 
+  fadeOutBackGround$ = new BehaviorSubject('5')
+
+  enterThumb() {
     duration(2500).pipe(
       map(t => (t * 2) + 2),
       map(t => Math.log(t) + 2),
@@ -52,8 +46,8 @@ export class InstructionsComponent implements OnInit {
       tap(x => this.thumbSizeDown$$.next(x)),
       takeUntil(this.downBusy$),
       takeWhile(p => p < 4),
+      tap(x => x > 2.9 ? this.fadeOutBackGround$.next('fadeOutBackground 2s ease-out forwards') : null),
       tap(x => x > 3 ? this.removeMe.emit(true) : null),
-      tap(console.log)
     ).subscribe()
   }
 
@@ -68,24 +62,7 @@ export class InstructionsComponent implements OnInit {
       map(t => (t * 2) + this.thumbSizeDown$$.value),
       tap(x => this.thumbSize$$.next(x)),
       takeWhile(p => p > 2),
-      tap(console.log)
     ).subscribe()
-
-    // interval(0, animationFrameScheduler).pipe(
-    //   map(x => x * -1),
-    //   map(x => (x / 100) + this.thumbSize$$.value),
-    //   //map(x => (Math.log(x) * 2) + 1),
-    //   tap(x => this.thumbSize$$.next(x)),
-    //   takeUntil(this.thumbBegins$),
-    //   //tap(console.log),
-    //   takeWhile(x => x > 0.1)
-    // ).subscribe()
-
-    // interval(1000).pipe(
-    //   tap(() => this.fadeIn$.next('fadeInThumb 0.5s ease-in forwards')),
-    //   tap(() => this.thumbSize$$.next(2)),
-    //   take(1)
-    // ).subscribe()
   }
 
 }

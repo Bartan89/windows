@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { interval, of } from 'rxjs';
+import { delay, take, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +14,9 @@ export class AppComponent {
 
 
   userCompletedInstructions(event: any) {
-    this.showInstructions = false;
+    of(1).pipe(
+      delay(50),
+      tap(() => this.showInstructions = false)
+    ).subscribe()
   }
 }
