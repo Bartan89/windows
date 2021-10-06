@@ -1,6 +1,7 @@
 <div [style.animation]="closeWindow$ | async" [style.transform]="position$ | async" class="program">
   <div (click)="closeWindow($event)" class="minus"></div>
-  <div (mousedown)="dragStart($event)" class="topHandle"></div>
+  <div (mousedown)="dragStart($event)" class="topHandle">
+  </div>
 
   <div *ngIf="metaData.id === 0" class="content">
     <h1>Hi, 👋 </h1>
@@ -20,10 +21,12 @@
   </div>
 
   <div *ngIf="metaData.id === 2" class="content">
+    <h2>Code:</h2>
     <h2>THIRD</h2>
   </div>
 
   <div *ngIf="metaData.id === 3" class="content">
+    <h2>Work:</h2>
     <h2>FOURTH</h2>
   </div>
 

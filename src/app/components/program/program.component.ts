@@ -22,14 +22,16 @@ export class ProgramComponent implements OnInit, OnDestroy {
     console.log(this.metaData.openPosX)
 
     this.closeWindow$.next('scale 0.3s ease-out forwards')
-    this.position$$.next({ x: this.metaData.openPosX, y: this.metaData.openPosY })
+    console.log(document.documentElement.clientWidth)
+    // this.position$$.next({ x: ((document.documentElement.clientWidth / 2) - 200), y: 0 })
     interval(0, animationFrameScheduler).pipe(
       map(x => x ** 2),
       map(x => x - this.metaData.openPosY),
       map(x => x * -1),
       tap(console.log),
       takeWhile(x => x > 0),
-      tap((increment) => this.position$$.next({ x: this.metaData.openPosX - 200, y: increment }))
+      tap((increment) => document.documentElement.clientWidth < 600 ? this.position$$.next({ x: ((document.documentElement.clientWidth / 2) - 200), y: increment }) : null),
+      tap((increment) => document.documentElement.clientWidth > 600 ? this.position$$.next({ x: (this.metaData.openPosX - 200), y: increment }) : null)
     ).subscribe()
   }
 
@@ -73,7 +75,6 @@ export class ProgramComponent implements OnInit, OnDestroy {
 
       map(x => x ** 1.8),
       map(x => x + event.screenY),
-      tap(console.log),
       takeUntil(this.destroy$),
       tap((increment) => this.position$$.next({ x: event.screenX - 210, y: increment }))
     ).subscribe()

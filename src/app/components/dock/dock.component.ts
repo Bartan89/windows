@@ -18,9 +18,12 @@ export class DockComponent implements OnInit {
   }
 
   open(event: { id: number, openPosX: number, openPosY: number }) {
-    console.log(event)
-    console.log(this.programs)
-    this.programs = [...this.programs, event]
+
+
+
+    if (!this.programs.some(p => p.id === event.id)) {
+      this.programs = [...this.programs, event]
+    }
 
   }
 

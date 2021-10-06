@@ -35,16 +35,19 @@
   height: 30px;
   background-color: rgb(207, 207, 207);
   border-radius: 10px 10px 0px 0px;
+  cursor: 'move';
 }
 
 .minus {
   position: absolute;
   right: 15px;
   top: 12px;
-  width: 20px;
-  height: 4px;
+  width: 27px;
+  height: 6px;
   background-color: rgb(88, 88, 88);
   border-radius: 10px;
+  cursor: pointer;
+  border: 5px;
 }
 
 .minus:hover {
