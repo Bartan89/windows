@@ -41,7 +41,7 @@ export class InstructionsComponent implements OnInit {
   enterThumb() {
     duration(2500).pipe(
       map(t => (t * 2) + 2),
-      map(t => Math.log(t) + 2),
+      //map(t => Math.log(t) + 2),
       tap(x => this.thumbSize$$.next(x)),
       tap(x => this.thumbSizeDown$$.next(x)),
       takeUntil(this.downBusy$),
