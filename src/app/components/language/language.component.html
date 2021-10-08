@@ -1,18 +1,28 @@
-<div class="circle">
-  <div class="tinyIconContainer">
-    <mat-icon fxFlexAlign="center" class="icon">language</mat-icon>
-    <span>in development</span>
-  </div>
-  <div class="tinyIconContainer">
-    <mat-icon fxFlexAlign="center" class="icon">language</mat-icon>
-    <span>in development</span>
-  </div>
-  <div class="tinyIconContainer">
-    <mat-icon fxFlexAlign="center" class="icon">language</mat-icon>
-    <span>in development</span>
-  </div>
-  <div class="tinyIconContainer">
-    <mat-icon fxFlexAlign="center" class="icon">language</mat-icon>
-    <span>in development</span>
+<div class="circleWrapper" (mousemove)="enterCircle($event)" (mouseleave)="leftTheCircle()" (click)="endTurn()">
+  <div class="circle" [style.transform]="rotation$ | async">
+    <div class="tinyIconContainer">
+      <mat-icon fxFlexAlign="center" class="icon">language</mat-icon>
+      <span>Dutch</span>
+    </div>
+    <div class="tinyIconContainer">
+      <mat-icon fxFlexAlign="center" class="icon">dark_mode</mat-icon>
+      <span>Dark-mode</span>
+    </div>
+    <div (click)="goToLinkedIn()" class="tinyIconContainer">
+      <mat-icon fxFlexAlign="center" class="icon">work</mat-icon>
+      <span>LinkedIn</span>
+    </div>
+    <div class="tinyIconContainer">
+      <mat-icon fxFlexAlign="center" class="icon">forum</mat-icon>
+      <span>Twitter</span>
+    </div>
+    <div class="tinyIconContainer">
+      <mat-icon fxFlexAlign="center" class="icon">share</mat-icon>
+      <span>Github</span>
+    </div>
+    <div class="tinyIconContainer">
+      <mat-icon fxFlexAlign="center" class="icon">admin_panel_settings</mat-icon>
+      <span>Privacy</span>
+    </div>
   </div>
 </div>

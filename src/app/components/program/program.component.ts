@@ -19,16 +19,15 @@ export class ProgramComponent implements OnInit, OnDestroy {
   destroy$ = new Subject();
 
   ngOnInit(): void {
-    console.log(this.metaData.openPosX)
+
 
     this.closeWindow$.next('scale 0.3s ease-out forwards')
-    console.log(document.documentElement.clientWidth)
+
     // this.position$$.next({ x: ((document.documentElement.clientWidth / 2) - 200), y: 0 })
     interval(0, animationFrameScheduler).pipe(
       map(x => x ** 2),
       map(x => x - this.metaData.openPosY),
       map(x => x * -1),
-      tap(console.log),
       takeWhile(x => x > 0),
       tap((increment) => document.documentElement.clientWidth < 600 ? this.position$$.next({ x: ((document.documentElement.clientWidth / 2) - 200), y: increment }) : null),
       tap((increment) => document.documentElement.clientWidth > 600 ? this.position$$.next({ x: (this.metaData.openPosX - 200), y: increment }) : null)
@@ -45,7 +44,6 @@ export class ProgramComponent implements OnInit, OnDestroy {
   offset$$ = new BehaviorSubject<{ x: number, y: number }>({ x: 0, y: 0 })
 
   absolutePosition$ = fromEvent(window, 'mousemove').pipe(
-    tap((p: any) => console.log('X2:', p.screenX, 'Y2', p.screenY)),
     tap((p: any) => this.position$$.next({ x: ((p.screenX - 70) - this.offset$$.value.x), y: ((p.screenY - 225) - this.offset$$.value.y) }))
   )
 
@@ -65,14 +63,11 @@ export class ProgramComponent implements OnInit, OnDestroy {
 
 
   dragStart(event: { screenX: number, screenY: number, offsetX: number, offsetY: number }) {
-    console.log('X:', event.screenX, 'Y', event.screenY)
-    console.log('all', event)
     this.offset$$.next({ x: event.offsetX, y: event.offsetY })
     this.startDrag$$.next(true);
   }
 
   closeWindow(event: { screenX: number, screenY: number }) {
-    console.log(event)
 
     this.closeWindow$.next('close 0.3s ease-out forwards')
     this.removeMe.emit(this.metaData.id);

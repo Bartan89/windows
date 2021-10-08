@@ -13,7 +13,6 @@ export class WelcomeComponent implements OnInit {
 
   greetings$$ = new BehaviorSubject<string[]>([])
   greetings$ = this.greetings$$.pipe(
-    tap(console.log),
     map(x => x.join(''))
   )
 
@@ -23,7 +22,6 @@ export class WelcomeComponent implements OnInit {
     const word = ['H', 'i', ',', ' ', 'W', 'e', 'l', 'c', 'o', 'm', 'e', '!'];
 
     interval(100).pipe(
-      tap(console.log),
       tap((i) => this.greetings$$.next([...this.greetings$$.value, word[i]])),
       take(word.length)
     ).subscribe()

@@ -29,7 +29,6 @@ export class DockComponent implements OnInit {
 
 
   removeProgram(id: number) {
-    console.log(event)
     interval(1000).pipe(
       tap(() => this.programs = [...this.programs.filter(p => p.id !== id)]),
       take(1),
