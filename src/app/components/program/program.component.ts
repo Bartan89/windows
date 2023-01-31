@@ -44,7 +44,8 @@ export class ProgramComponent implements OnInit, OnDestroy {
   offset$$ = new BehaviorSubject<{ x: number, y: number }>({ x: 0, y: 0 })
 
   absolutePosition$ = fromEvent(window, 'mousemove').pipe(
-    tap((p: any) => this.position$$.next({ x: ((p.screenX - 70) - this.offset$$.value.x), y: ((p.screenY - 225) - this.offset$$.value.y) }))
+    tap(console.log),
+    tap((p: any) => this.position$$.next({ x: (p.clientX - this.offset$$.value.x)      , y: ((p.clientY - 100) - this.offset$$.value.y) }))
   )
 
 
